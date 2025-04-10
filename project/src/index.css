@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+@theme {
+  --color-midnight: #121063;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+  /* swatches theme hex */
+  --color-my-hover: #a9d9d0;
+  --color-my-hover-l: #f2e7dc;
+  --color-my-active: #038c7f;
+  --color-my-active-d: #027373;
+  --color-main-d: #0d0d0d;
+}
