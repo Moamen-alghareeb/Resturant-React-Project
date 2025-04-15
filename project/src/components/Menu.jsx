@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ToggleButton from './ToggleButton';
 
 export default function Menu({
@@ -11,15 +11,17 @@ export default function Menu({
   handlePagination,
   handleSearch,
   numOfPages,
-  pageItems,
   pageNum,
+  searchTerm,
 }) {
+  const inputRef = useRef(null);
   let noPages = [];
   for (let i = 1; i < numOfPages + 1; i++) {
     noPages.push(i);
   }
 
-  console.log(items);
+  // console.log(items);
+  console.log(searchTerm);
 
   if (loading) {
     return (
@@ -76,10 +78,30 @@ export default function Menu({
               </svg>
               <input
                 type="text"
-                onChange={handleSearch}
                 className="grow "
+                value={searchTerm}
+                onChange={handleSearch}
                 placeholder="Search"
               />
+              {searchTerm && (
+                <button
+                  onClick={() => {
+                    handleSearch('');
+                    if (inputRef.current) {
+                      inputRef.current.focus(); // Optional: refocus the input
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') {
+                      handleSearch('');
+                      e.target.blur();
+                    }
+                  }}
+                  className="btn btn-ghost btn-xs"
+                >
+                  ✕
+                </button>
+              )}
             </label>
           </div>
           <div className="overflow-x-auto ml-2 rounded-box border border-base-content/5 bg-base-100 w-100">

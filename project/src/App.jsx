@@ -17,8 +17,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(0);
   const [pageNum, setPageNum] = useState(1);
   const pageSize = 3;
-  // let searchingItems = [...items];
-  // console.log(searchingItems);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const getData = async () => {
@@ -30,7 +29,6 @@ export default function App() {
         'http://localhost:3000/category?_delay=1000'
       );
       setItems(data);
-      // setPageItems(data.slice(0, 3));
       setCategories([{ id: 0, name: 'All' }, ...categoriesData]);
       setLoading(false);
     };
@@ -38,12 +36,7 @@ export default function App() {
   }, []);
 
   const handleReset = () => {
-    //clone
-    //edit
-    console.log(items);
     const newItems = items.map((itms) => ({ ...itms, count: 0 }));
-    console.log(newItems);
-    //overwrite
     setItems(newItems);
   };
 
@@ -86,46 +79,33 @@ export default function App() {
   };
   const handlePagination = (PN) => setPageNum(PN);
 
-  // const handleSearch = (e) => {
-  //   numOfPages = [];
-  //   searchingItems =
-  //     selectedCategory != 0
-  //       ? items.filter((item) => item.category === selectedCategory)
-  //       : items; //make sure you are searching within the filtered items
-  //   if (e.target.value === '') {
-  //     setPageItems(searchingItems.slice(0, 3));
-  //   } else {
-  //     let newfilteredItems = searchingItems.filter((item) =>
-  //       item.name.toLowerCase().includes(e.target.value.toLowerCase())
-  //     );
-  //     // handlePagination(1, newfilteredItems);
-  //     setPageItems(newfilteredItems);
-  //   }
-  //   console.log(numOfPages);
-  // };
-  // console.log(items);
-
-  // console.log(pageItems);
-  // console.log(numOfPages);
-
-  /*********** filteration on selected category **************/
   const handleSelectedCategory = (id) => {
     handlePagination(1);
     setSelectedCategory(id);
   };
+  const handleSearch = (e) => {
+    const term = e.target?.value || '';
+    setSearchTerm(term.toLowerCase());
+    handlePagination(1);
+  };
+
+  /*********** filteration on selected category **************/
   let filteredItems =
     selectedCategory === 0
       ? items
       : items.filter((itm) => itm.category == selectedCategory);
   // console.log(filteredItems);
+  //here is the bug at this if condition
+  if (searchTerm) {
+    filteredItems = items.filter((itm) =>
+      itm.name.toLowerCase().includes(searchTerm)
+    );
+  }
 
   const numOfPages = Math.ceil(filteredItems.length / pageSize);
-
   const start = (pageNum - 1) * pageSize;
   const end = start + pageSize;
   filteredItems = filteredItems.slice(start, end);
-  // console.log(num);
-  // let numOfPages = [];
 
   return (
     <div>
@@ -142,12 +122,13 @@ export default function App() {
               categories={categories}
               loading={loading}
               selectedCategory={selectedCategory}
+              pageNum={pageNum}
+              numOfPages={numOfPages}
               handleBuy={handleBuy}
               handleSelectedCategory={handleSelectedCategory}
               handlePagination={handlePagination}
-              pageNum={pageNum}
-              numOfPages={numOfPages}
-              // handleSearch={handleSearch}
+              handleSearch={handleSearch}
+              searchTerm={searchTerm}
             />
           }
         />
