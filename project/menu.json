@@ -1,0 +1,114 @@
+{
+  "menu": [
+    {
+      "id": 2,
+      "name": "Burger chicken",
+      "count": 0,
+      "price": "60",
+      "isInCart": false,
+      "category": 1
+    },
+    {
+      "id": 3,
+      "name": "Burger mushroom",
+      "count": 0,
+      "price": "60",
+      "isInCart": false,
+      "category": 1
+    },
+    {
+      "id": 4,
+      "name": "Burger basic",
+      "count": 0,
+      "price": "60",
+      "isInCart": false,
+      "category": 1
+    },
+    {
+      "id": 5,
+      "name": "Burger halepeno",
+      "count": 0,
+      "price": "60",
+      "isInCart": false,
+      "category": 1
+    },
+    {
+      "id": 6,
+      "name": "Fries Cheese",
+      "count": 0,
+      "price": "40",
+      "isInCart": false,
+      "category": 2
+    },
+    {
+      "id": 7,
+      "name": "Fries Minced Meat",
+      "count": 0,
+      "price": "60",
+      "isInCart": false,
+      "category": 2
+    },
+    {
+      "id": 8,
+      "name": "Fries loaded",
+      "count": 0,
+      "price": "50",
+      "isInCart": false,
+      "category": 2
+    },
+    {
+      "id": 9,
+      "name": "Water sparkling",
+      "count": 0,
+      "price": "20",
+      "isInCart": false,
+      "category": 3
+    },
+    {
+      "id": 10,
+      "name": "Water small",
+      "count": 0,
+      "price": "10",
+      "isInCart": false,
+      "category": 3
+    },
+    {
+      "id": 11,
+      "name": "Water large",
+      "count": 0,
+      "price": "15",
+      "isInCart": false,
+      "category": 3
+    },
+    {
+      "name": "Smashed",
+      "price": "56",
+      "category": 1,
+      "count": 0,
+      "isInCart": false,
+      "id": 12
+    },
+    {
+      "name": "curly fries",
+      "price": "45",
+      "category": 2,
+      "count": 0,
+      "isInCart": false,
+      "id": 13
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Burger"
+    },
+    {
+      "id": 2,
+      "name": "Fries"
+    },
+    {
+      "id": 3,
+      "name": "Water"
+    }
+  ]
+}

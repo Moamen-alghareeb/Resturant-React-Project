@@ -13,15 +13,13 @@ export default function Menu({
   numOfPages,
   pageNum,
   searchTerm,
+  refreshItems,
 }) {
   const inputRef = useRef(null);
   let noPages = [];
   for (let i = 1; i < numOfPages + 1; i++) {
     noPages.push(i);
   }
-
-  // console.log(items);
-  console.log(searchTerm);
 
   if (loading) {
     return (
@@ -111,6 +109,7 @@ export default function Menu({
                 <tr>
                   <th>item</th>
                   <th>price</th>
+                  <th></th>
                   <th></th>
                 </tr>
               </thead>

@@ -3,15 +3,17 @@ import '../index.css';
 import { Link, NavLink } from 'react-router';
 export default function Navbar(props) {
   return (
-    <div className="navbar shadow-sm rounded-2xl bg-my-hover-l">
-      <div className="navbar-start">
+    <div className="navbar shadow-sm rounded-2xl bg-my-hover-l flex justify-between">
+      <div className="">
         <NavLink to={'Menu'} className="w-fit  text-4xl ml-2">
           GH Burger
         </NavLink>
       </div>
-      <div className="navbar-center flex">
+      <div className="flex">
         <ul className="menu menu-horizontal px-1 text-lg">
-          <li className="mr-2">
+          {/* Home */}
+
+          {/* <li className="mr-2">
             <NavLink
               className={({ isActive }) =>
                 isActive ? 'font-bold  bg-my-active' : 'font-light'
@@ -20,7 +22,10 @@ export default function Navbar(props) {
             >
               Home
             </NavLink>
-          </li>
+          </li> */}
+
+          {/* Menu */}
+
           <li className="mr-2">
             <NavLink
               className={({ isActive }) =>
@@ -31,6 +36,21 @@ export default function Navbar(props) {
               Menu
             </NavLink>
           </li>
+
+          {/* Admin */}
+
+          <li className="mr-2">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? 'font-bold  bg-my-active' : 'font-light'
+              }
+              to="/Admin"
+            >
+              Admin
+            </NavLink>
+          </li>
+
+          {/* About*/}
           <li>
             {/* navlink takes a callback function that provides a object has a funvtion called isActive and give the anchor a class named active */}
             <NavLink
@@ -38,21 +58,20 @@ export default function Navbar(props) {
                 isActive ? 'font-bold bg-my-active' : 'font-light'
               }
               to="/About"
-              state={'ghareeb'}
             >
               About
             </NavLink>
           </li>
         </ul>
       </div>
-      <Link to="./Cart" className="navbar-end mr-4 relative">
+      <Link to="./Cart" className="navbar-end mr-4 relative w-fit">
         <svg
           fill={props.number > 0 ? '#a9d9d0' : 'none'}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-6"
+          className="size-6"
         >
           <path
             stroke-linecap="round"
