@@ -4,7 +4,9 @@ function Cartitem(props) {
 
   return (
     <div className="flex gap-4 p-4 my-3 bg-white shadow-md rounded-lg items-center max-w-md mx-auto border border-gray-200">
-      <div className="flex-1 text-lg font-semibold text-green-800">{props.name}</div>
+      <div className="flex-1 text-lg font-semibold text-green-800">
+        {props.name}
+      </div>
       <button
         className="px-3 py-1 text-white bg-blue-500 rounded hover:bg-blue-600 transition-colors"
         onClick={() => props.handleDecreament(props.id)}
@@ -12,7 +14,11 @@ function Cartitem(props) {
         -
       </button>
       <div
-        className={`w-8 text-center text-lg font-bold mx-2 py-1 rounded ${count === 1 ? 'bg-amber-300 text-gray-800' : 'bg-green-300 text-green-900'}`}
+        className={`w-8 text-center text-lg font-bold mx-2 py-1 rounded ${
+          count === 1
+            ? 'bg-amber-300 text-gray-800'
+            : 'bg-green-300 text-green-900'
+        }`}
       >
         {count}
       </div>
